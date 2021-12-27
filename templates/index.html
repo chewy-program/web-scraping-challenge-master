@@ -18,56 +18,13 @@
     <div class = "container-fluid">
       <div class = "container">
         <h3>Latest image from Mars</h3>
-        <img src="{{ url.image_path}}"><a href = "{{ url.image_path}}"></a></img>
+        <img src="{{ url.image_path }}"><a href = "{{ url.image_path}}"></a></img>
         </div>
       <h3>Article {{ article.title, article.paragraph }}</h3>
-      <h3>{{ hemispheres.img_url, hemispheres.title }}</h3>
+      <div class = "container">
+        <h3>{{ hemispheres.title }}</h3>
+        <img src="{{ hemispheres.img_url }}"></a></img>
+        </div>
       </div>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th>Index</th>
-          <th>Mars</th>
-          <th>Earth</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mars - Earth Comparison</td>
-          <td>Mars</td>
-          <td>Earth</td>
-        </tr>
-        <tr>
-          <td>Diameter:</td>
-          <td>6,779 km</td>
-          <td>12,742 km</td>
-        </tr>
-        <tr>
-          <td>Mass:</td>
-          <td>6.39 10^23 kg</td>
-          <td>5.97 10^24 kg</td>
-        </tr>
-        <tr>
-          <td>Moons:</td>
-          <td>2</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>Distance from Sun:</td>
-          <td>227,943,824 km</td>
-          <td>149,598,262 km</td>
-        </tr>
-        <tr>
-          <td>Length of Year:</td>
-          <td>687 Earth days</td>
-          <td>365.24 days</td>
-        </tr>
-        <tr>
-          <td>Temperature:</td>
-          <td>-87 to -5C</td>
-          <td>-88 to 58C</td>
-        </tr>
-      </tbody>
-    </table>
     </div>
   </body>
