@@ -118,7 +118,7 @@ def mars_scrape():
     #and the Hemisphere title containing the hemisphere name. 
     #Use a Python dictionary to store the data using the keys `img_url` and `title`.
     hemisphere_list= []
-    for x in range(50):
+    for x in range(1):
     # HTML object
         html = browser.html
     # Parse HTML with Beautiful Soup
@@ -150,5 +150,4 @@ def mars_scrape():
         "hemisphere" : hemisphere_list, 
         "urlclean" : featured_image_url, 
         "marsfacts" : article_info}
-    print(marsdata)
-mars_scrape()
+    return marsdata
