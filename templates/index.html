@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
+
 <body>
 
   <div class="container-fluid">
@@ -15,52 +17,85 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
-    <div class = "container-fluid">
-      <div class = "container">
+    <div class="col-md-12">
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.paragraph}}</p>
+    </div>
+    <div class="col-md-9">
+      <div class="container">
         <h3>Latest image from Mars</h3>
-        <img src="{{ url.image_path }}"><a href = "{{ url.image_path}}"></a></img>
-        </div>
-      <h3>{{ article.title, article.paragraph }}</h3>
-      <div class ="col-md-3">
-        <div class="thumbnail">
-          <a href="{{ hemispheres.img_url }}">
-            <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
-            <div class="caption">
-              <p>{{ hemispheres.title }}</p>
-              </div>
-          </a>
-      </div>
-      </div>
-      <div class ="col-md-3">
-        <div class="thumbnail">
-          <a href="{{ hemispheres.img_url }}">
-            <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
-            <div class="caption">
-              <p>{{ hemispheres.title }}</p>
-              </div>
-          </a>
-        </div>
-        <div class ="col-md-3">
-          <div class="thumbnail">
-            <a href="{{ hemispheres.img_url }}">
-              <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
-              <div class="caption">
-                <p>{{ hemispheres.title }}</p>
-                </div>
-            </a>
-        </div>
-        </div>
-          <div class ="col-md-3">
-            <div class="thumbnail">
-              <a href="{{ hemispheres.img_url }}">
-              <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
-              <div class="caption">
-                <p>{{ hemispheres.title }}</p>
-              </div>
-          </a>
-        </div>
-        </div>
-        </div>
+        <img src="{{ url.image_path }}"><a href="{{ url.image_path}}"></a></img>
       </div>
     </div>
-  </body>
+    <div class="col-md-3">
+      <table border="1" class="dataframe">
+        <thead>
+          <tr style="text-align: right;">
+  
+            <th></th>
+            <th>Mars</th>
+            <th>Earth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>Mars - Earth Comparison</td>
+            <td>Mars</td>
+            <td>Earth</td>
+          </tr>
+          <tr>
+            
+            <td>Diameter:</td>
+            <td>6,779 km</td>
+            <td>12,742 km</td>
+          </tr>
+          <tr>
+            
+            <td>Mass:</td>
+            <td>6.39 � 10^23 kg</td>
+            <td>5.97 � 10^24 kg</td>
+          </tr>
+          <tr>
+            
+            <td>Moons:</td>
+            <td>2</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            
+            <td>Distance from Sun:</td>
+            <td>227,943,824 km</td>
+            <td>149,598,262 km</td>
+          </tr>
+          <tr>
+        
+            <td>Length of Year:</td>
+            <td>687 Earth days</td>
+            <td>365.24 days</td>
+          </tr>
+          <tr>
+            
+            <td>Temperature:</td>
+            <td>-87 to -5 �C</td>
+            <td>-88 to 58�C</td>
+          </tr>
+        </tbody>
+    </div>
+
+  </div>
+  <br/>
+  <h1 class="text-center">Mars Hemispheres</h1>
+  {% for hemisphere in hemispheres %}
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="{{ hemisphere.img_url }}">
+        <img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}"></img>
+        <div class="caption">
+          <p>{{ hemisphere.title }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  {%endfor%}
+</body>
