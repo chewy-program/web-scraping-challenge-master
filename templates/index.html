@@ -20,10 +20,46 @@
         <h3>Latest image from Mars</h3>
         <img src="{{ url.image_path }}"><a href = "{{ url.image_path}}"></a></img>
         </div>
-      <h3>Article {{ article.title, article.paragraph }}</h3>
-      <div class = "container">
-        <h3>{{ hemispheres.title }}</h3>
-        <img src="{{ hemispheres.img_url }}"></a></img>
+      <h3>{{ article.title, article.paragraph }}</h3>
+      <div class ="col-md-3">
+        <div class="thumbnail">
+          <a href="{{ hemispheres.img_url }}">
+            <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
+            <div class="caption">
+              <p>{{ hemispheres.title }}</p>
+              </div>
+          </a>
+      </div>
+      </div>
+      <div class ="col-md-3">
+        <div class="thumbnail">
+          <a href="{{ hemispheres.img_url }}">
+            <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
+            <div class="caption">
+              <p>{{ hemispheres.title }}</p>
+              </div>
+          </a>
+        </div>
+        <div class ="col-md-3">
+          <div class="thumbnail">
+            <a href="{{ hemispheres.img_url }}">
+              <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
+              <div class="caption">
+                <p>{{ hemispheres.title }}</p>
+                </div>
+            </a>
+        </div>
+        </div>
+          <div class ="col-md-3">
+            <div class="thumbnail">
+              <a href="{{ hemispheres.img_url }}">
+              <img src="{{ hemispheres.img_url }}" alt="{{ hemispheres.title }}"></img>
+              <div class="caption">
+                <p>{{ hemispheres.title }}</p>
+              </div>
+          </a>
+        </div>
+        </div>
         </div>
       </div>
     </div>
