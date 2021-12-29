@@ -117,28 +117,28 @@ def mars_scrape():
     #Save both the image url string for the full resolution hemisphere image, 
     #and the Hemisphere title containing the hemisphere name. 
     #Use a Python dictionary to store the data using the keys `img_url` and `title`.
-    hemi_list_dict= []
+    hemisphere_list= []
     for x in range(50):
-        # HTML object
+    # HTML object
         html = browser.html
-            # Parse HTML with Beautiful Soup
+    # Parse HTML with Beautiful Soup
         soup = BeautifulSoup(html, 'html.parser')
-            # Retrieve all elements that contain book information
+    # Retrieve all elements that contain book information
         links = soup.find_all('div', class_="item")
 
-            # Use splinter to navigate the site and find the image url for the current Featured Mars Image 
-            #and assign the url string to a variable called `featured_image_url`.
+    # Use splinter to navigate the site and find the image url for the current Featured Mars Image 
+    #and assign the url string to a variable called `featured_image_url`.
         for link in links:
-            img = link.find('div', class_ = "description")
-            img_link = img.find('a')
-            href = img_link['href']
-            img_url = ("https://marshemispheres.com/" + href)
-            title = link.find('p').text
+            img = link.find('a', class_ = "itemLink product-item")
+            img_link = img.find('img')
+            src = img_link['src']
+            img_url = ("https://marshemispheres.com/" + src)
+            title = img_link['alt']
             marshemi_dict = {
-                "img_url" : img_url,
-                "title" : title
-                }
-            hemi_list_dict.append(marshemi_dict)
+            "img_url" : img_url,
+            "title" : title
+            }
+            hemisphere_list.append(marshemi_dict)
             hemisphereDB.insert_one(marshemi_dict) 
             
 
@@ -147,7 +147,8 @@ def mars_scrape():
 # that will execute all of your scraping code from above and return one Python dictionary containing all of the scraped data.
 
     marsdata = {
-        "hemisphere" :hemi_list_dict, 
+        "hemisphere" : hemisphere_list, 
         "urlclean" : featured_image_url, 
         "marsfacts" : article_info}
     print(marsdata)
+mars_scrape()
