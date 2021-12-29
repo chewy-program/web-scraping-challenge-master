@@ -8,22 +8,20 @@ from pymongo import MongoClient
 # Create an instance of Flask
 app = Flask(__name__)
 client = MongoClient("mongodb://localhost:27017/")
-
+mars_data = scrape_mars.mars_scrape()
 
 @app.route("/scrape")
 def scrape():
 
     # Run the scrape function
+    mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
     mars_data = scrape_mars.mars_scrape()
 
     # Update the Mongo database using update and upsert=True
-    db = client["marsDB"]
-    db.update({}, mars_data, upsert=True)
-    # Redirect back to home page
-    return redirect("/")
-#client = MongoClient("mongodb://127.0.0.1:27017") #host uri    
-#db = client.mymongodb    #Select the database    
-#todos = db.todo #Select the collection name    
+
+    mongo.db.collection.update({}, mars_data, upsert=True)
+    
+    return redirect("/")   
 @app.route("/")
 def home():
     client = MongoClient("mongodb://localhost:27017/")
